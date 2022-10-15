@@ -1,7 +1,0 @@
-steps:
-- name: Checkstyle for Java
-  uses: dbelyaev/action-checkstyle@v0.6.1
-- name: reviewdog
-  uses: reviewdog/action-setup@v1
-  with:
-    reviewdog_version: latest
