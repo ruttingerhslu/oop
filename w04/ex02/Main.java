@@ -5,5 +5,6 @@ public class Main {
         Vehicle car = new Vehicle();
         System.out.println(car.isMotorRunning());
         System.out.println(car.isRadioOn());
+        
     }
 }
