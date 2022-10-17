@@ -13,15 +13,27 @@ public class Line {
         this.a = new Point(x1, y1);
         this.b = new Point(x2, y2);
     }
-
+    
+    /** 
+     * Returns first point as {@link Point}.
+     * @return {@link Point}
+     */
     public Point getPointA() {
         return a;
     }
-
+    
+    /** 
+     * Returns second pointn as {@link Point}.
+     * @return {@link Point}
+     */
     public Point getPointB() {
         return b;
     }
-
+    
+    /** 
+     * Returns both points summarized in a string.
+     * @return {@link String}
+     */
     public String stringify() {
         return "Point A: " + a.stringify() + ", Point B: " + b.stringify();
     }
