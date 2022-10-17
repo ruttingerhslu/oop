@@ -4,12 +4,18 @@ public class Point {
     private int x;
     private int y;
 
+    /** 
+     * Initializes a point in x- and y-axis.
+     * @param x     value in x-axis
+     * @param y     value in y-axis
+     */
     public Point(int x, int y) {
         this.x = x;
         this.y = y;
     }
     
     /** 
+     * Sets value in x-axis
      * @param x     value in x-axis
      */
     public void setX(int x) {
@@ -18,6 +24,7 @@ public class Point {
 
     
     /** 
+     * Sets value in y-axis
      * @param y     value in y-axis
      */
     public void setY(int y) {
@@ -26,7 +33,8 @@ public class Point {
 
     
     /** 
-     * @return String
+     * Returns both coordinates summarized as a string.
+     * @return {@link String}
      */
     public String stringify() {
         return "x: " + x + ", y: " + y;

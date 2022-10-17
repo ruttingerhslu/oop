@@ -31,7 +31,7 @@ public class Line {
     }
     
     /** 
-     * Returns both points summarized in a string.
+     * Returns both points summarized as a string.
      * @return {@link String}
      */
     public String stringify() {

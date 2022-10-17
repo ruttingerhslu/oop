@@ -1,4 +1,4 @@
-name: reviewdog
+name: dev workflow
 on: [push]
 jobs:
   checkstyle:
