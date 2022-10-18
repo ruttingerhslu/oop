@@ -1,4 +1,4 @@
-package legacy;
+package src.legacy;
 import java.lang.Math;
 
 public class Demo {

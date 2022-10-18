@@ -1,4 +1,4 @@
-package legacy;
+package src.legacy;
 
 public class Main {
     public static void main(String[] args) {

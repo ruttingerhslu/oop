@@ -1,4 +1,4 @@
-package w04.ex03;
+package src.w04.ex03;
 
 public class Point {
     private int x;

@@ -1,4 +1,4 @@
-package w04.ex02;
+package src.w04.ex02;
 /**
  * 
  * Interface class representing a switchable thing.

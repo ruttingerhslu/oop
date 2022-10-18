@@ -1,7 +1,8 @@
-package w04.ex02;
-public class Radio implements Switchable {
+package src.w04.ex02;
+
+public class Motor implements Switchable {
     private boolean status;
-    private double frequency;
+    private int rotationalSpeed;
 
     public void switchOn() {
         status = true;
@@ -18,13 +19,14 @@ public class Radio implements Switchable {
     public boolean isSwitchedOff() {
         return !status;
     }
-
-    public void changeFrequency(double freq) {
-        frequency = freq;
-    }
-
-    public double getFrequency() {
-        return frequency;
-    }
     
+    public void setRotationalSpeed(int rpm) {
+        rotationalSpeed = rpm;
+    }
+
+    public int getRotationalSpeed() {
+        return rotationalSpeed;
+    }
+
+
 }
