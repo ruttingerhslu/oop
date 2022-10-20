@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"src.w04.ex02","c":"Switchable","l":"isSwitchedOff()"},{"p":"src.w04.ex02","c":"Switchable","l":"isSwitchedOn()"},{"p":"src.w04.ex02","c":"Switchable","l":"switchOff()"},{"p":"src.w04.ex02","c":"Switchable","l":"switchOn()"}];updateSearchResults();
