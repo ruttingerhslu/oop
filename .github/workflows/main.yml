@@ -15,3 +15,5 @@ jobs:
           reporter: github-pr-review
           level: warning
           checkstyle_config: google_checks.xml
+    name: generate javadoc
+      run:  javadoc -d ../../../javadoc -subpackages ../../../src

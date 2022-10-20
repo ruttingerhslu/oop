@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"src.w04.ex02"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"src.legacy"},{"l":"src.w04.ex02"},{"l":"src.w04.ex03"}];updateSearchResults();
