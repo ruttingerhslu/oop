@@ -1,6 +1,7 @@
 package src.w05;
 
 public class Rectangle extends Shape {
+
     private int width;
     private int height;
 
@@ -12,7 +13,7 @@ public class Rectangle extends Shape {
 
     @Override
     public int getPerimeter() {
-        return 2*(this.width + this.height);
+        return 2 * (this.width + this.height);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package src.w05;
 
 public class Circle extends Shape {
+
     private int radius;
 
     public Circle(final int x, final int y, final int radius) {
@@ -17,4 +18,5 @@ public class Circle extends Shape {
     public int getArea() {
         return (int) (Math.pow(radius, 2)*Math.PI);
     }
+
 }

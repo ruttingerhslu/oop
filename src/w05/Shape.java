@@ -1,6 +1,7 @@
 package src.w05;
 
 public abstract class Shape {
+
     private int x;
     private int y;
 
@@ -25,4 +26,5 @@ public abstract class Shape {
     public abstract int getPerimeter();
 
     public abstract int getArea();
+
 }
