@@ -23,7 +23,7 @@ public class Line {
     }
     
     /** 
-     * Returns second pointn as {@link Point}.
+     * Returns second point as {@link Point}.
      * @return {@link Point}
      */
     public Point getPointB() {
