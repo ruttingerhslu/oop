@@ -19,7 +19,7 @@ public class Line {
      * @return {@link Point}
      */
     public Point getPointA() {
-        return a;
+        return new Point(a.getX(), a.getY());
     }
     
     /** 
@@ -27,7 +27,7 @@ public class Line {
      * @return {@link Point}
      */
     public Point getPointB() {
-        return b;
+        return new Point(b.getX(), b.getY());
     }
     
     /** 

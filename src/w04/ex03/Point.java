@@ -22,6 +22,12 @@ public class Point {
         this.x = x;
     }
 
+    /** 
+     * Gets value of x-axis
+     */
+    public int getX() {
+        return x;
+    }
     
     /** 
      * Sets value in y-axis
@@ -29,6 +35,13 @@ public class Point {
      */
     public void setY(int y) {
         this.y = y;
+    }
+
+    /** 
+     * Gets value of y-axis
+     */
+    public int getY() {
+        return y;
     }
 
     
