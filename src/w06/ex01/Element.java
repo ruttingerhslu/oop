@@ -11,4 +11,9 @@ public abstract class Element {
 
     public abstract String getStateOfMatter(double celsius);
 
+    @Override
+    public String toString() {
+        return "Boiling point: " + getBoilingPoint() + "\nMelting point:" + getMeltingPoint();
+    }
+
 }
