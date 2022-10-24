@@ -5,16 +5,10 @@ package src.w06.ex01;
 */
 public abstract class Element {
 
-    double boilingPoint;
-    double meltingPoint;
-
-    public Element(double boilingPoint, double meltingPoint) {
-
-    }
-
     public abstract double getBoilingPoint();
 
     public abstract double getMeltingPoint();
 
     public abstract String getStateOfMatter(double celsius);
+
 }

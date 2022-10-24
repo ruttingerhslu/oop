@@ -2,12 +2,8 @@ package src.w06.ex01;
 
 public class Lead extends Element {
 
-    double boilingPoint;
-    double meltingPoint;
-
-    public Lead(double boilingPoint, double meltingPoint) {
-        super(boilingPoint, meltingPoint);
-    }
+    private double boilingPoint = 1749;
+    private double meltingPoint = 327.5;
 
     @Override
     public double getBoilingPoint() {

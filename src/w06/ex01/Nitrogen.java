@@ -2,12 +2,8 @@ package src.w06.ex01;
 
 public class Nitrogen extends Element {
 
-    double boilingPoint;
-    double meltingPoint;
-
-    public Nitrogen(double boilingPoint, double meltingPoint) {
-        super(boilingPoint, meltingPoint);
-    }
+    private double boilingPoint = -195.8;
+    private double meltingPoint = -210;
 
     @Override
     public double getBoilingPoint() {

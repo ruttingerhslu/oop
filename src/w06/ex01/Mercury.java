@@ -2,12 +2,8 @@ package src.w06.ex01;
 
 public class Mercury extends Element {
 
-    double boilingPoint;
-    double meltingPoint;
-
-    public Mercury(double boilingPoint, double meltingPoint) {
-        super(boilingPoint, meltingPoint);
-    }
+    private double boilingPoint = 356.7;
+    private double meltingPoint = -38.83;
 
     @Override
     public double getBoilingPoint() {
