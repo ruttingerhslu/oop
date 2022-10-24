@@ -44,6 +44,15 @@ public class Point {
         return y;
     }
 
+    /**
+     * Move {@link Point} relative to provided x- and y-axises
+     * @param x     value in x-axis
+     * @param y     value in y-axis
+     */
+    public void moveRelative(int x, int y) {
+        setX(getX() + x);
+        setY(getY() + y);
+    }
     
     /** 
      * Returns both coordinates summarized as a string.
