@@ -62,6 +62,16 @@ public class Point {
         setX(getX() + vectorPoint.getX());
         setY(getY() + vectorPoint.getY());
     }
+
+    /**
+     * Move {@link Point} relative to provided polar coordinates (distance and angle)
+     * @param distance   distance from current Point to new Point
+     * @param angle      angle relative to new Point
+     */
+    public void moveRelative(int distance, double angle) {
+        setX((int)(distance * Math.cos(angle)));
+        setY((int)(distance * Math.sin(angle)));
+    }
     
     /** 
      * Returns both coordinates summarized as a string.
