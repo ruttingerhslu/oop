@@ -10,8 +10,17 @@ public class Point {
      * @param y     value in y-axis
      */
     public Point(int x, int y) {
-        this.x = x;
-        this.y = y;
+        setX(x);
+        setY(y);
+    }
+
+    /** 
+     * Initializes a point with provided point
+     * @param point     value as {@link Point}
+     */
+    public Point(Point point) {
+        setX(point.getX());
+        setY(point.getY());
     }
     
     /** 
