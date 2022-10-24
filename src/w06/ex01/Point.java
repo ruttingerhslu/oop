@@ -53,6 +53,15 @@ public class Point {
         setX(getX() + x);
         setY(getY() + y);
     }
+
+    /**
+     * Move {@link Point} relative to provided x- and y-axises
+     * @param vectorPoint   vector in {@link Point}
+     */
+    public void moveRelative(Point vectorPoint) {
+        setX(getX() + vectorPoint.getX());
+        setY(getY() + vectorPoint.getY());
+    }
     
     /** 
      * Returns both coordinates summarized as a string.
