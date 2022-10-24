@@ -1,1 +1,4 @@
 **/javadoc
+*.iml
+.idea/*
+.DS_Store
