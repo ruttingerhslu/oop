@@ -1,4 +1,4 @@
-package src.legacy;
+package src.main.legacy;
 public class Point {
     private int x;
     private int y;

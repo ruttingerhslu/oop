@@ -1,4 +1,4 @@
-package src.w05;
+package src.main.w05;
 
 public abstract class Shape {
 

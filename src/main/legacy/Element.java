@@ -1,4 +1,4 @@
-package src.legacy;
+package src.main.legacy;
 /** Represents a chemical element.
  * @author Rafael Uttinger
  * @version 1.0

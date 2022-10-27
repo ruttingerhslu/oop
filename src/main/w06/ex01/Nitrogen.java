@@ -1,9 +1,9 @@
-package src.w06.ex01;
+package src.main.w06.ex01;
 
-public class Mercury extends Element {
+public class Nitrogen extends Element {
 
-    private double boilingPoint = 356.7;
-    private double meltingPoint = -38.83;
+    private double boilingPoint = -195.8;
+    private double meltingPoint = -210;
 
     @Override
     public double getBoilingPoint() {

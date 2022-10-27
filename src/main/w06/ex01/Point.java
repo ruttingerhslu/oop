@@ -1,4 +1,4 @@
-package src.w06.ex01;
+package src.main.w06.ex01;
 
 public class Point {
     private int x;

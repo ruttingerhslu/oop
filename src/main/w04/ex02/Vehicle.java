@@ -1,4 +1,4 @@
-package src.w04.ex02;
+package src.main.w04.ex02;
 
 public class Vehicle {
     private Switchable motor = new Motor();

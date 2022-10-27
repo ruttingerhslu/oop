@@ -1,4 +1,4 @@
-package src.w05;
+package src.main.w05;
 /** Represents a chemical element.
  * @author Rafael Uttinger
  * @version 1.0
