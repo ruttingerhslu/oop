@@ -19,4 +19,8 @@ public class Circle extends Shape {
         return (int) (Math.pow(radius, 2)*Math.PI);
     }
 
+    public int getDiameter() {
+        return 2*radius;
+    }
+
 }
