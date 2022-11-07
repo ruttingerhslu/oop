@@ -1,7 +1,7 @@
 package src.main.w06.ex03;
 
 public class Calculator {
-    public int addition(int a, int b) {
-        return a + b;
+    public long addition(int a, int b) {
+        return (long)a + (long)b;
     }
 }

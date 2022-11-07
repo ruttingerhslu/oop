@@ -9,9 +9,9 @@ public class Person {
 
     /**
      * Create new Person with id, first and last name
-     * @param id            personal id
-     * @param firstName     the first name of the person
-     * @param lastName      the last name of the person
+     * @param id            personal identifier
+     * @param firstName     the first name of a person
+     * @param lastName      the last name of a person
      */
     public Person(long id, String firstName, String lastName) {
         this.id = id;
@@ -41,7 +41,15 @@ public class Person {
 
     @Override
     public String toString() {
-        return "First name: " + getFirstName() +
-                "\nLast name: " + getLastName();
+        return getClass().getSimpleName() + "first name: " + getFirstName() +
+                ", last name: " + getLastName();
+    }
+
+    @Override
+    public final boolean equals(Object o) {
+        if (o instanceof Person) {
+            return this.getId() == ((Person)o).getId();
+        }
+        return false;
     }
 }

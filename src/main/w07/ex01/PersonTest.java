@@ -1,8 +1,8 @@
 package src.main.w07.ex01;
 
 import nl.jqno.equalsverifier.EqualsVerifier;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class PersonTest {
@@ -38,7 +38,34 @@ class PersonTest {
     }
 
     @Test
-    public void equalsContract() {
+    public void equalsVerifier() {
         EqualsVerifier.forClass(Person.class).verify();
+    }
+
+    @Test
+    public void testEquals() {
+        Person samePerson = new Person(1, "Paul", "Ross");
+
+        assertTrue(person.equals(samePerson));
+    }
+    @Test
+    public void testEqualsTypo() {
+        Person typoPerson = new Person(1, "Paul", "Toss");
+
+        assertTrue(person.equals(typoPerson));
+    }
+
+    @Test
+    public void testEqualsFalse() {
+        Person otherPerson = new Person(2, "Anna", "Triss");
+
+        assertFalse(person.equals(otherPerson));
+    }
+
+    @Test
+    public void testHashCode() {
+        Person samePerson = new Person (1, "Paul", "Ross");
+
+        assertEquals(person.hashCode(), samePerson.hashCode());
     }
 }

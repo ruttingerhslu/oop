@@ -7,13 +7,8 @@ class CalculatorTest {
     public final Calculator calculator = new Calculator();
 
     @Test
-    void testAddition() {
-        int input1 = 1;
-        int input2 = 3;
-
-        int result = calculator.addition(input1, input2);
-
-        assertEquals(result, 4);
+    void testAdditionPositive() {
+        assertEquals(calculator.addition(1, 3), 4);
     }
 
     @Test
@@ -23,11 +18,11 @@ class CalculatorTest {
 
     @Test
     void testAdditionMax() {
-        assertEquals(2*Integer.MAX_VALUE, calculator.addition(Integer.MAX_VALUE, Integer.MAX_VALUE));
+        assertEquals(2147483648L, calculator.addition(Integer.MAX_VALUE, 1));
     }
 
     @Test
     void testAdditionMaxNegative() {
-        assertEquals(-(2 * Integer.MAX_VALUE), calculator.addition(-Integer.MAX_VALUE, -Integer.MAX_VALUE));
+        assertEquals(-2147483648L, calculator.addition(-Integer.MAX_VALUE, -1));
     }
 }
