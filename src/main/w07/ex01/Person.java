@@ -52,4 +52,9 @@ public class Person {
         }
         return false;
     }
+
+    @Override
+    public final int hashCode() {
+        return Long.hashCode(getId());
+    }
 }
