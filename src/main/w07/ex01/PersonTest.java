@@ -1,6 +1,5 @@
 package src.main.w07.ex01;
 
-import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -35,11 +34,6 @@ class PersonTest {
         person.setLastName("Rudd");
 
         assertEquals("Rudd", person.getLastName());
-    }
-
-    @Test
-    public void equalsVerifier() {
-        EqualsVerifier.forClass(Person.class).verify();
     }
 
     @Test
