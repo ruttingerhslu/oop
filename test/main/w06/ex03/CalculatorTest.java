@@ -1,6 +1,8 @@
-package src.main.w06.ex03;
+package test.main.w06.ex03;
 
 import org.junit.jupiter.api.Test;
+import src.main.w06.ex03.Calculator;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class CalculatorTest {

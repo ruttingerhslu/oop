@@ -1,6 +1,7 @@
-package src.main.w07.ex01;
+package test.main.w07.ex01;
 
 import org.junit.jupiter.api.Test;
+import src.main.w07.ex01.Person;
 
 import static org.junit.jupiter.api.Assertions.*;
 
