@@ -1,5 +1,7 @@
 package src.main.w07.ex01;
 
+import java.util.Objects;
+
 public class Person implements Comparable<Person> {
     private final long id;
     private String firstName;
@@ -53,13 +55,15 @@ public class Person implements Comparable<Person> {
 
     @Override
     public final int hashCode() {
-        return Long.hashCode(getId());
+        return Objects.hash(getId());
     }
 
     /*
-      @param person {@link Person} to be compared to
-     * @return      a negative integer, zero, or a positive integer as the provided
-     * Person's last and first name is alphabetically less than, equal to, or greater.
+     * Returns zero if first and last name are the same, returns
+     * negative integer if this person's first and last name are lexicographically less than the provided person
+     * and positive integer if this person's first and last name are lexicographically less than the provided person.
+     * @param person {@link Person} to be compared to
+     * @return      negative integer, zero or positive integer.
      */
     @Override
     public int compareTo(Person person) {
