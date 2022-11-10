@@ -1,8 +1,6 @@
 package src.main.w07.ex01;
 
-import java.util.Objects;
-
-public class Person {
+public class Person implements Comparable<Person> {
     private final long id;
     private String firstName;
     private String lastName;
@@ -56,5 +54,19 @@ public class Person {
     @Override
     public final int hashCode() {
         return Long.hashCode(getId());
+    }
+
+    /*
+      @param person {@link Person} to be compared to
+     * @return      a negative integer, zero, or a positive integer as the provided
+     * Person's last and first name is alphabetically less than, equal to, or greater.
+     */
+    @Override
+    public int compareTo(Person person) {
+        if (!person.getLastName().equals(this.getLastName())) {
+            return person.getLastName().compareTo(this.getLastName());
+        } else {
+            return person.getFirstName().compareTo(this.getFirstName());
+        }
     }
 }
