@@ -1,4 +1,5 @@
-package src.main.legacy;
+package src.main.w08.ex01;
+
 public class Temperature {
     private double celsius;
 
@@ -30,12 +31,12 @@ public class Temperature {
     }
 
     /**
-    * Returns the physical state of the provided element name. 
-    *
-    * @param  elementName  name of the chemical element you want the physical state of
-    * @return              state of matter in "gasförmig", "flüssig" or "fest"
-    * @see                 #getStateOfMatter(Element)
-    */
+     * Returns the physical state of the provided element name.
+     *
+     * @param  elementName  name of the chemical element you want the physical state of
+     * @return              state of matter in "gasförmig", "flüssig" or "fest"
+     * @see                 #getStateOfMatter(Element)
+     */
     public String getStateOfMatter(String elementName) {
         return switch (elementName) {
             case "N" -> this.determineState(-195.8, -210);
@@ -46,11 +47,11 @@ public class Temperature {
     }
 
     /**
-    * Returns the physical state of the provided element. 
-    * @param  element   {@link Element}
-    * @return           state of matter in "gasförmig", "flüssig" or "fest"
-    * @see              #getStateOfMatter(String)
-    */
+     * Returns the physical state of the provided element.
+     * @param  element   {@link Element}
+     * @return           state of matter in "gasförmig", "flüssig" or "fest"
+     * @see              #getStateOfMatter(String)
+     */
     public String getStateOfMatter(Element element) {
         return this.determineState(element.getBoilingPoint(), element.getMeltingPoint());
     }
