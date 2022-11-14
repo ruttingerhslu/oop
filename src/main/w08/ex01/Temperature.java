@@ -42,7 +42,7 @@ public class Temperature implements Comparable<Temperature> {
     }
 
     public String toString() {
-        return getClass().getSimpleName() + "\nTemperature: " + this.getKelvin();
+        return getClass().getSimpleName() + "\nTemperature in celsius: " + this.getCelsius();
     }
 
     public int compareTo(Temperature other) {
