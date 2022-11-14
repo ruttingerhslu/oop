@@ -69,8 +69,7 @@ public class Person implements Comparable<Person> {
     public int compareTo(Person person) {
         if (!person.getLastName().equals(this.getLastName())) {
             return person.getLastName().compareTo(this.getLastName());
-        } else {
-            return person.getFirstName().compareTo(this.getFirstName());
         }
+        return person.getFirstName().compareTo(this.getFirstName());
     }
 }
