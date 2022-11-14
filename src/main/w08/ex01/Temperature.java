@@ -1,32 +1,38 @@
 package src.main.w08.ex01;
 
 public class Temperature {
-    private double celsius;
+    private float kelvin;
+    private final float KELVIN_OFFSET = 273.15f;
 
-    public Temperature(double celsius) {
-        this.setTemperature(celsius);
+    public Temperature(float celsius) {
+        this.setCelsius(celsius);
     }
 
-    public Temperature() {
+    public Temperature(Temperature temperature) {
+        this.setKelvin(temperature.getKelvin());
     }
 
-    public final void setTemperature(final double celsius) {
-        this.celsius = celsius;
+    public final float getKelvin() {
+        return this.kelvin;
     }
 
-    public final double getTemperature() {
-        return this.celsius;
+    public float getCelsius() {
+        return this.convertToCelsius(getKelvin());
     }
 
-    public double getKelvin() {
-        return this.getTemperature() + 273.15;
+    public final void setKelvin(final float kelvin) {
+        this.kelvin = kelvin;
     }
 
-    public double getFahrenheit() {
-        return this.getTemperature() * 1.8 + 32;
+    public void setCelsius(float celsius) {
+        this.setKelvin(convertToKelvin(celsius));
     }
 
-    public void changeCelsius(double value) {
-        this.setTemperature(this.getTemperature() + value);
+    public final float convertToKelvin(float celsius) {
+        return celsius + this.KELVIN_OFFSET;
+    }
+
+    public final float convertToCelsius(float kelvin) {
+        return kelvin - this.KELVIN_OFFSET;
     }
 }
