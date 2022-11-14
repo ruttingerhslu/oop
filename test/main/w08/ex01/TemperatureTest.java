@@ -1,7 +1,6 @@
 package test.main.w08.ex01;
 
 import org.junit.jupiter.api.Test;
-import src.main.w08.ex01.Element;
 import src.main.w08.ex01.Temperature;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -29,16 +28,5 @@ class TemperatureTest {
     void testChangeCelsius() {
         temperature.changeCelsius(-6);
         assertEquals(-2, temperature.getTemperature());
-    }
-
-    @Test
-    void testStateOfMatterElement() {
-        Element element = new Element(10, 2);
-        assertEquals("flüssig", temperature.getStateOfMatter(element));
-    }
-
-    @Test
-    void testStateOfMatterString() {
-        assertEquals("fest", temperature.getStateOfMatter("Pb"));
     }
 }
