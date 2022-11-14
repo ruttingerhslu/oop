@@ -1,6 +1,8 @@
 package src.main.w08.ex01;
 
-public class Temperature {
+import java.util.Objects;
+
+public class Temperature implements Comparable<Temperature> {
     private float kelvin;
     private final float KELVIN_OFFSET = 273.15f;
 
@@ -26,6 +28,25 @@ public class Temperature {
 
     public void setCelsius(float celsius) {
         this.setKelvin(convertToKelvin(celsius));
+    }
+
+    public boolean equals(Object o) {
+        if (o instanceof Temperature) {
+            return this.getKelvin() == ((Temperature) o).getKelvin();
+        }
+        return false;
+    }
+
+    public int hashCode() {
+        return Objects.hashCode(this.getKelvin());
+    }
+
+    public String toString() {
+        return getClass().getSimpleName() + "\nTemperature: " + this.getKelvin();
+    }
+
+    public int compareTo(Temperature other) {
+        return Float.compare(getKelvin(), other.getKelvin());
     }
 
     public final float convertToKelvin(float celsius) {
