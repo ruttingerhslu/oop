@@ -7,6 +7,7 @@ import src.main.w08.ex02.TemperatureTrend;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -38,6 +39,17 @@ class TemperatureTrendTest {
     @Test
     void testGetCount() {
         assertEquals(1, temperatureTrend.getCount());
+    }
+
+    @Test
+    void testGetMaxTemperature() {
+        Temperature expectedTemperature = new Temperature(10);
+
+        temperatures.add(expectedTemperature);
+        Optional<Temperature> maxTemperature = temperatureTrend.getMaxTemperature();
+
+        assertTrue(maxTemperature.isPresent());
+        assertEquals(expectedTemperature, maxTemperature.get());
     }
 
     void initializeTemperatures() {

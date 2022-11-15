@@ -4,6 +4,7 @@ import src.main.w08.ex01.Temperature;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 public class TemperatureTrend {
     private final List<Temperature> temperatures;
@@ -26,6 +27,10 @@ public class TemperatureTrend {
 
     public int getCount() {
         return temperatures.size();
+    }
+
+    public Optional<Temperature> getMaxTemperature() {
+        return temperatures.stream().max(Temperature::compareTo);
     }
 
     @Override
