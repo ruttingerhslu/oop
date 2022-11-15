@@ -23,7 +23,7 @@ class TemperatureTest {
     }
 
     @Test
-    void testsGetCelsius() {
+    void testGetCelsius() {
         assertEquals(0f, temperature.getCelsius());
     }
 

@@ -2,7 +2,7 @@ package src.main.w08.ex01;
 
 import java.util.Objects;
 
-public class Temperature implements Comparable<Temperature> {
+public final class Temperature implements Comparable<Temperature> {
     private float kelvin;
     private final float KELVIN_OFFSET = 273.15f;
 
