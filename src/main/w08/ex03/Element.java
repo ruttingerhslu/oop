@@ -40,6 +40,6 @@ public class Element {
     }
 
     public String getDescription() {
-        return name + " ist bei " + getTemperature() + "°C " + getState();
+        return name + " ist bei " + getTemperature() + "°C " + getState().getLabel() + ".";
     }
 }
