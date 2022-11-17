@@ -2,18 +2,18 @@ package src.main.w08.ex02;
 
 import src.main.w08.ex01.Temperature;
 
+import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 import java.util.Objects;
 
 public class TemperatureTrend {
-    private final List<Temperature> temperatures;
+    private final ArrayList<Temperature> temperatures;
 
-    public TemperatureTrend(List<Temperature> temperatures) {
+    public TemperatureTrend(ArrayList<Temperature> temperatures) {
         this.temperatures = temperatures;
     }
 
-    public List<Temperature> getTemperatures() {
+    public ArrayList<Temperature> getTemperatures() {
         return temperatures;
     }
 
@@ -30,21 +30,18 @@ public class TemperatureTrend {
     }
 
     public float getMaxTemperature() {
-        if (!getTemperatures().isEmpty())
-            return Collections.max(getTemperatures()).getCelsius();
+        if (!getTemperatures().isEmpty()) return Collections.max(getTemperatures()).getCelsius();
         return 0;
     }
 
     public float getMinTemperature() {
-        if (!getTemperatures().isEmpty())
-            return Collections.min(getTemperatures()).getCelsius();
+        if (!getTemperatures().isEmpty()) return Collections.min(getTemperatures()).getCelsius();
         return 0;
     }
 
     public float getAvgTemperature() {
         float sum = 0;
-        for (Temperature t : getTemperatures()
-        ) {
+        for (Temperature t : getTemperatures()) {
             sum += t.getCelsius();
         }
         return sum / getCount();
@@ -52,7 +49,7 @@ public class TemperatureTrend {
 
     public float getUniqueAvgTemperature() {
         float sum = 0;
-        List<Temperature> distinctTemperatures = getTemperatures().stream().distinct().toList();
+        ArrayList<Temperature> distinctTemperatures = new ArrayList<>(getTemperatures().stream().distinct().toList());
         for (Temperature t : distinctTemperatures) {
             sum += t.getCelsius();
         }
@@ -75,7 +72,7 @@ public class TemperatureTrend {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder("Temperatures: \n");
-        List<Temperature> temperatures = getTemperatures();
+        ArrayList<Temperature> temperatures = getTemperatures();
         for (int i = 0; i < temperatures.size(); i++) {
             stringBuilder.append(i).append(": ").append(temperatures.get(i).getCelsius()).append("\n");
         }

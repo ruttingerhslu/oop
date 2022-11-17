@@ -5,12 +5,11 @@ import src.main.w08.ex01.Temperature;
 import src.main.w08.ex02.TemperatureTrend;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class TemperatureTrendTest {
-    List<Temperature> temperatures = new ArrayList<>();
+    ArrayList<Temperature> temperatures = new ArrayList<>();
     TemperatureTrend temperatureTrend = new TemperatureTrend(temperatures);
 
     @Test
