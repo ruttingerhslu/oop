@@ -2,9 +2,9 @@ package src.main.w08.ex02;
 
 import src.main.w08.ex01.Temperature;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 
 public class TemperatureTrend {
     private final List<Temperature> temperatures;
@@ -22,15 +22,41 @@ public class TemperatureTrend {
     }
 
     public void clear() {
-        temperatures.clear();
+        getTemperatures().clear();
     }
 
     public int getCount() {
-        return temperatures.size();
+        return getTemperatures().size();
     }
 
-    public Optional<Temperature> getMaxTemperature() {
-        return temperatures.stream().max(Temperature::compareTo);
+    public float getMaxTemperature() {
+        if (!getTemperatures().isEmpty())
+            return Collections.max(getTemperatures()).getCelsius();
+        return 0;
+    }
+
+    public float getMinTemperature() {
+        if (!getTemperatures().isEmpty())
+            return Collections.min(getTemperatures()).getCelsius();
+        return 0;
+    }
+
+    public float getAvgTemperature() {
+        float sum = 0;
+        for (Temperature t : getTemperatures()
+        ) {
+            sum += t.getCelsius();
+        }
+        return sum / getCount();
+    }
+
+    public float getUniqueAvgTemperature() {
+        float sum = 0;
+        List<Temperature> distinctTemperatures = getTemperatures().stream().distinct().toList();
+        for (Temperature t : distinctTemperatures) {
+            sum += t.getCelsius();
+        }
+        return sum / distinctTemperatures.size();
     }
 
     @Override
