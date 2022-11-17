@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Objects;
 
-public class TemperatureTrend {
+public final class TemperatureTrend {
     private final ArrayList<Temperature> temperatures;
 
     public TemperatureTrend(ArrayList<Temperature> temperatures) {
@@ -31,12 +31,12 @@ public class TemperatureTrend {
 
     public float getMaxTemperature() {
         if (!getTemperatures().isEmpty()) return Collections.max(getTemperatures()).getCelsius();
-        return 0;
+        return Float.NaN;
     }
 
     public float getMinTemperature() {
         if (!getTemperatures().isEmpty()) return Collections.min(getTemperatures()).getCelsius();
-        return 0;
+        return Float.NaN;
     }
 
     public float getAvgTemperature() {

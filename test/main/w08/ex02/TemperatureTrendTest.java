@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 class TemperatureTrendTest {
-    ArrayList<Temperature> temperatures = new ArrayList<>();
-    TemperatureTrend temperatureTrend = new TemperatureTrend(temperatures);
+    private final ArrayList<Temperature> temperatures = new ArrayList<>();
+    private final TemperatureTrend temperatureTrend = new TemperatureTrend(temperatures);
 
     @Test
     void testAdd() {
@@ -41,7 +41,7 @@ class TemperatureTrendTest {
         initTemperatures();
         Temperature expectedTemperature = new Temperature(10);
 
-        temperatures.add(expectedTemperature);
+        temperatureTrend.add(expectedTemperature);
         float maxTemperature = temperatureTrend.getMaxTemperature();
 
         assertEquals(10f, maxTemperature);
@@ -57,7 +57,7 @@ class TemperatureTrendTest {
         initTemperatures();
         Temperature expectedTemperature = new Temperature(-10);
 
-        temperatures.add(expectedTemperature);
+        temperatureTrend.add(expectedTemperature);
         float minTemperature = temperatureTrend.getMinTemperature();
 
         assertEquals(-10f, minTemperature);
@@ -74,8 +74,8 @@ class TemperatureTrendTest {
         Temperature highTemperature = new Temperature(20);
         Temperature lowTemperature = new Temperature(-5);
 
-        temperatures.add(highTemperature);
-        temperatures.add(lowTemperature);
+        temperatureTrend.add(highTemperature);
+        temperatureTrend.add(lowTemperature);
         float avgTemperature = temperatureTrend.getAvgTemperature();
 
         assertEquals(5f, avgTemperature);
@@ -88,8 +88,8 @@ class TemperatureTrendTest {
         Temperature duplicateTemperature = new Temperature(20);
         Temperature lowTemperature = new Temperature(-5);
 
-        temperatures.add(highTemperature);
-        temperatures.add(duplicateTemperature);
+        temperatureTrend.add(highTemperature);
+        temperatureTrend.add(duplicateTemperature);
         temperatures.add(lowTemperature);
         float avgTemperature = temperatureTrend.getUniqueAvgTemperature();
 
@@ -98,6 +98,6 @@ class TemperatureTrendTest {
 
     void initTemperatures() {
         Temperature temperature = new Temperature(0);
-        temperatures.add(temperature);
+        temperatureTrend.add(temperature);
     }
 }
