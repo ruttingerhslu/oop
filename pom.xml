@@ -1,32 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
- * Copyright 2022 Roland Gisler, HSLU Informatik, Switzerland
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
--->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ch.hslu</groupId>
-    <artifactId>oop_maven_template</artifactId>
+    <artifactId>oop</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>oop_maven_template</name>
+    <name>oop</name>
     <description>
         Projekt-Template für Java-Projekte an der HSLU. Details siehe unter Beschreibung.
     </description>
-    <url>https://gitlab.enterpriselab.ch/${scm.group.name}/${project.artifactId}</url>
 
     <organization>
         <name>Hochschule Luzern - Informatik</name>
@@ -42,9 +26,8 @@
 
     <developers>
         <developer>
-            <id>${scm.developer.uid}</id>
-            <name>Roland Gisler</name>
-            <email>roland.gisler@hslu.ch</email>
+            <name>Rafael Uttinger</name>
+            <email>rafael.uttinger@stud.hslu.ch</email>
             <organization>HSLU Informatik</organization>
             <roles>
                 <role>Developer</role>
@@ -52,35 +35,17 @@
         </developer>
     </developers>
 
-    <scm>
-        <connection>scm:git:https://${scm.developer.uid}@gitlab.enterpriselab.ch/${scm.group.name}/${project.artifactId}.git</connection>
-        <developerConnection>scm:git:ssh://git@gitlab.enterpriselab.ch/${scm.group.name}/${project.artifactId}.git</developerConnection>
-        <url>https://gitlab.enterpriselab.ch/${scm.group.name}/${project.artifactId}/tree/develop</url>
-        <tag>HEAD</tag>
-    </scm>
-
     <issueManagement>
         <system>GitLab Repository auf ELab - HSLU I</system>
-        <url>https://gitlab.enterpriselab.ch/${scm.group.name}/${project.artifactId}/issues</url>
     </issueManagement>
 
     <ciManagement>
         <system>GitLab Pipelines auf ELab - HSLU I</system>
-        <url>https://gitlab.enterpriselab.ch/${scm.group.name}/${project.artifactId}/pipelines/</url>
     </ciManagement>
 
     <properties>
         <!-- VM-Args (z.B. Memory-Settings) für Unit- und Integrationstests. -->
         <argLine>-Xms512m -Xmx1g -Xss10m</argLine>
-
-        <!-- Hier ggf. andere Startklasse anpassen! -->
-        <jar.start.class>ch.hslu.demo.DemoApp</jar.start.class>
-
-        <scm.group.name>oop</scm.group.name>
-        <scm.developer.uid>rgisler</scm.developer.uid>
-        <docker.user>${scm.developer.uid}</docker.user>
-        <docker.base.image>amazoncorretto:17.0.4-alpine</docker.base.image>
-        <docker.image>oop-demo</docker.image>
 
         <project.build.targetJdk>17</project.build.targetJdk>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -430,7 +395,6 @@
                 <artifactId>snyk-maven-plugin</artifactId>
                 <inherited>false</inherited>
                 <configuration>
-                    <apiToken>${env.SNYK_TOKEN}</apiToken>
                     <args>
                         <arg>--all-projects</arg>
                     </args>
@@ -517,7 +481,6 @@
                         <manifest>
                             <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                             <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-                            <mainClass>${jar.start.class}</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -577,7 +540,6 @@
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer" />
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>${jar.start.class}</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>
@@ -640,7 +602,6 @@
                         </goals>
                         <configuration>
                             <backend>pdf</backend>
-                            <sourceHighlighter>coderay</sourceHighlighter>
                             <attributes>
                                 <icons>font</icons>
                                 <pagenums />
@@ -683,7 +644,6 @@
                 <artifactId>maven-pmd-plugin</artifactId>
                 <configuration>
                     <includeTests>true</includeTests>
-                    <sourceEncoding>${project.build.sourceEncoding}</sourceEncoding>
                     <targetJdk>${project.build.targetJdk}</targetJdk>
                     <analysisCache>true</analysisCache>
                     <rulesets>
@@ -711,10 +671,8 @@
                 <artifactId>jib-maven-plugin</artifactId>
                 <configuration>
                     <from>
-                        <image>${docker.base.image}</image>
                     </from>
                     <to>
-                        <image>${docker.user}/${docker.image}</image>
                     </to>
                 </configuration>
             </plugin>
@@ -724,7 +682,6 @@
                 <configuration>
                     <images>
                         <image>
-                            <name>${docker.user}/${docker.image}:%l</name>
                         </image>
                     </images>
                 </configuration>
@@ -733,10 +690,8 @@
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
                 <configuration>
-                    <release>17</release>
                     <jlinkImageName>runtime</jlinkImageName>
                     <launcher>guisample</launcher>
-                    <mainClass>${jar.start.class}</mainClass>
                 </configuration>
             </plugin>
         </plugins>
@@ -755,21 +710,6 @@
                  </configuration>
             </plugin>
             -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-changes-plugin</artifactId>
-                <version>${mavenChangesPlugin.version}</version>
-                <configuration>
-                    <xmlPath>${basedir}/src/site/changes.xml</xmlPath>
-                </configuration>
-                <reportSets>
-                    <reportSet>
-                        <reports>
-                            <report>changes-report</report>
-                        </reports>
-                    </reportSet>
-                </reportSets>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
@@ -793,23 +733,12 @@
                 <configuration>
                     <includeTests>true</includeTests>
                     <linkXRef>true</linkXRef>
-                    <sourceEncoding>${project.build.sourceEncoding}</sourceEncoding>
                     <targetJdk>${project.build.targetJdk}</targetJdk>
                     <analysisCache>true</analysisCache>
                     <rulesets>
                         <ruleset>${pmd.config.location}</ruleset>
                     </rulesets>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jxr-plugin</artifactId>
-                <version>${mavenJxrPlugin.version}</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-project-info-reports-plugin</artifactId>
-                <version>${mavenProjectInfoReportsPlugin.version}</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -841,11 +770,6 @@
                 <version>${mavenSourcePlugin.version}</version>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-report-plugin</artifactId>
-                <version>${mavenSurefireReportPlugin.version}</version>
-            </plugin>
-            <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>${jacocoPlugin.version}</version>
@@ -853,20 +777,6 @@
                     <reportSet>
                         <reports>
                             <report>report</report>
-                        </reports>
-                    </reportSet>
-                </reportSets>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>versions-maven-plugin</artifactId>
-                <version>${versionsPlugin.version}</version>
-                <reportSets>
-                    <reportSet>
-                        <reports>
-                            <report>dependency-updates-report</report>
-                            <report>plugin-updates-report</report>
-                            <report>property-updates-report</report>
                         </reports>
                     </reportSet>
                 </reportSets>
@@ -882,12 +792,4 @@
             </plugin>
         </plugins>
     </reporting>
-
-    <distributionManagement>
-        <site>
-            <id>oop_maven_template</id>
-            <name>oop_maven_template</name>
-            <url>https://jenkins-global.el.eee.intern/jenkins/job/oop_maven_template-develop/site/</url>
-        </site>
-    </distributionManagement>
 </project>
