@@ -1,17 +1,18 @@
-package src.main.w07.ex01;
+package main.w07.ex01;
 
 import java.util.Objects;
 
-public class Person implements Comparable<Person> {
+public final class Person implements Comparable<Person> {
     private final long id;
-    private String firstName;
-    private String lastName;
+    private final String firstName;
+    private final String lastName;
 
     /**
      * Create new Person with id, first and last name
-     * @param id            personal identifier
-     * @param firstName     the first name of a person
-     * @param lastName      the last name of a person
+     *
+     * @param id        personal identifier
+     * @param firstName the first name of a person
+     * @param lastName  the last name of a person
      */
     public Person(long id, String firstName, String lastName) {
         this.id = id;
@@ -31,31 +32,23 @@ public class Person implements Comparable<Person> {
         return lastName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
     @Override
     public String toString() {
-        return getClass().getSimpleName() + "first name: " + getFirstName() +
-                ", last name: " + getLastName();
+        return getClass().getSimpleName() + "first name: " + getFirstName() + ", last name: " + getLastName();
     }
 
     @Override
-    public final boolean equals(Object o) {
+    public boolean equals(Object o) {
         if (o instanceof Person) {
-            return this.getId() == ((Person)o).getId();
+            return this.getId() == ((Person) o).getId() && Objects.equals(this.getFirstName(),
+                    ((Person) o).getFirstName()) && Objects.equals(this.getLastName(), ((Person) o).getLastName());
         }
         return false;
     }
 
     @Override
     public final int hashCode() {
-        return Objects.hash(getId());
+        return Objects.hash(getId(), getFirstName(), getLastName());
     }
 
     /*

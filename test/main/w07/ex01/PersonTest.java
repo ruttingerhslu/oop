@@ -1,8 +1,8 @@
-package test.main.w07.ex01;
+package main.w07.ex01;
 
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.jupiter.api.Test;
-import src.main.w07.ex01.Person;
+import main.w07.ex01.Person;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,20 +22,6 @@ class PersonTest {
     @Test
     void testLastName() {
         assertEquals("Ross", person.getLastName());
-    }
-
-    @Test
-    void testSetFirstName() {
-        person.setFirstName("Bob");
-
-        assertEquals("Bob", person.getFirstName());
-    }
-
-    @Test
-    void testSetLastName() {
-        person.setLastName("Rudd");
-
-        assertEquals("Rudd", person.getLastName());
     }
 
     @Test
