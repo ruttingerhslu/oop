@@ -1,4 +1,4 @@
-package src.main.w08.ex03;
+package main.w08.ex03;
 
 public class Element {
     private final String name;

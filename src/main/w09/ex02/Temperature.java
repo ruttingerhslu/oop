@@ -1,4 +1,4 @@
-package main.w08.ex01;
+package main.w09.ex02;
 
 import java.util.Objects;
 
@@ -6,15 +6,22 @@ public final class Temperature implements Comparable<Temperature> {
     private float kelvin;
     private final float KELVIN_OFFSET = 273.15f;
 
-    public Temperature(float celsius) {
-        this.setCelsius(celsius);
+    public Temperature(float temperature, TemperatureScale scale) {
+        switch (scale) {
+            case KELVIN -> this.setKelvin(temperature);
+            case CELSIUS -> this.setCelsius(temperature);
+        }
     }
 
-    public Temperature(Temperature temperature) {
-        this.setKelvin(temperature.getKelvin());
+    public static Temperature createFromCelsius(final float celsius) {
+        return new Temperature(celsius, TemperatureScale.CELSIUS);
     }
 
-    public final float getKelvin() {
+    public static Temperature createFromKelvin(final float kelvin) {
+        return new Temperature(kelvin, TemperatureScale.KELVIN);
+    }
+
+    public float getKelvin() {
         return this.kelvin;
     }
 
@@ -22,7 +29,7 @@ public final class Temperature implements Comparable<Temperature> {
         return this.convertToCelsius(getKelvin());
     }
 
-    public final void setKelvin(final float kelvin) {
+    public void setKelvin(final float kelvin) {
         this.kelvin = kelvin;
     }
 
@@ -49,11 +56,11 @@ public final class Temperature implements Comparable<Temperature> {
         return Float.compare(getKelvin(), other.getKelvin());
     }
 
-    public final float convertToKelvin(float celsius) {
+    public float convertToKelvin(float celsius) {
         return celsius + this.KELVIN_OFFSET;
     }
 
-    public final float convertToCelsius(float kelvin) {
+    public float convertToCelsius(float kelvin) {
         return kelvin - this.KELVIN_OFFSET;
     }
 }

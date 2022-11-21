@@ -1,6 +1,6 @@
-package src.main.w08.ex02;
+package main.w08.ex02;
 
-import src.main.w08.ex01.Temperature;
+import main.w08.ex01.Temperature;
 
 import java.util.ArrayList;
 import java.util.Collections;

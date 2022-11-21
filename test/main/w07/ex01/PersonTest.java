@@ -2,7 +2,6 @@ package main.w07.ex01;
 
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.jupiter.api.Test;
-import main.w07.ex01.Person;
 
 import static org.junit.jupiter.api.Assertions.*;
 

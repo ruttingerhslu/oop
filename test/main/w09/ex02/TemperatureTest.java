@@ -1,16 +1,14 @@
-package main.w08.ex01;
+package main.w09.ex02;
 
 import main.w07.ex01.Person;
 import nl.jqno.equalsverifier.EqualsVerifier;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import main.w08.ex01.Temperature;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class TemperatureTest {
     private final float KELVIN_VALUE = 273.15f;
-    Temperature temperature = new Temperature(0);
+    Temperature temperature = Temperature.createFromCelsius(0);
 
     @Test
     void testSetKelvin() {
@@ -25,8 +23,19 @@ class TemperatureTest {
     }
 
     @Test
+    void testGetKelvin() {
+        assertEquals(273.15f, temperature.getKelvin());
+    }
+
+    @Test
     void testGetCelsius() {
         assertEquals(0f, temperature.getCelsius());
+    }
+
+    @Test
+    void testKelvinConstructor() {
+        Temperature otherTemperature = Temperature.createFromKelvin(273.15f);
+        assertEquals(temperature, otherTemperature);
     }
 
     @Test
@@ -36,7 +45,7 @@ class TemperatureTest {
 
     @Test
     void testHashCode() {
-        Temperature otherTemperature = new Temperature(0);
+        Temperature otherTemperature = Temperature.createFromCelsius(0);
 
         assertEquals(temperature.hashCode(), otherTemperature.hashCode());
     }
@@ -48,7 +57,7 @@ class TemperatureTest {
 
     @Test
     void testCompareTo() {
-        Temperature otherTemperature = new Temperature(2);
+        Temperature otherTemperature = Temperature.createFromCelsius(2);
 
         assertTrue(temperature.compareTo(otherTemperature) < 0);
     }

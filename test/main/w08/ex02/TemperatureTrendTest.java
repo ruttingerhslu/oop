@@ -1,12 +1,11 @@
-package test.main.w08.ex02;
+package main.w08.ex02;
 
+import main.w08.ex01.Temperature;
 import org.junit.jupiter.api.Test;
-import src.main.w08.ex01.Temperature;
-import src.main.w08.ex02.TemperatureTrend;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TemperatureTrendTest {
     private final ArrayList<Temperature> temperatures = new ArrayList<>();

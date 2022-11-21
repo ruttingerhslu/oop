@@ -1,8 +1,6 @@
-package test.main.w08.ex03;
+package main.w08.ex03;
 
 import org.junit.jupiter.api.Test;
-import src.main.w08.ex03.Element;
-import src.main.w08.ex03.StateOfMatter;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -26,7 +24,7 @@ class ElementTest {
 
         element.setTemperature(otherTemperature);
 
-        assertEquals("Wasserstoff ist bei "+ otherTemperature + "°C fest.", element.getDescription());
+        assertEquals("Wasserstoff ist bei " + otherTemperature + "°C fest.", element.getDescription());
     }
 
 }
