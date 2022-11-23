@@ -3,22 +3,29 @@ package main.w09.ex02;
 import java.util.Objects;
 
 public final class Temperature implements Comparable<Temperature> {
-    private float kelvin;
+    private final float kelvin;
     private final float KELVIN_OFFSET = 273.15f;
 
-    public Temperature(float temperature, TemperatureScale scale) {
+    private Temperature(float temperature, TemperatureScale scale) {
         switch (scale) {
-            case KELVIN -> this.setKelvin(temperature);
-            case CELSIUS -> this.setCelsius(temperature);
+            case KELVIN -> this.kelvin = temperature;
+            case CELSIUS -> this.kelvin = convertToKelvin(temperature);
+            case default -> throw new IllegalArgumentException("Temperature scale either not provided or not found");
         }
     }
 
     public static Temperature createFromCelsius(final float celsius) {
+        if (celsius < -273.15) throw new IllegalArgumentException("Celsiuswert darf nicht unter -273.15 sein!");
         return new Temperature(celsius, TemperatureScale.CELSIUS);
     }
 
     public static Temperature createFromKelvin(final float kelvin) {
+        if (kelvin < 0) throw new IllegalArgumentException("Kelvinwert darf nicht unter 0 sein!");
         return new Temperature(kelvin, TemperatureScale.KELVIN);
+    }
+
+    public static Temperature createFromFahrenheit() throws NotImplementedException {
+        throw new NotImplementedException("Not implemented yet!");
     }
 
     public float getKelvin() {
@@ -27,14 +34,6 @@ public final class Temperature implements Comparable<Temperature> {
 
     public float getCelsius() {
         return this.convertToCelsius(getKelvin());
-    }
-
-    public void setKelvin(final float kelvin) {
-        this.kelvin = kelvin;
-    }
-
-    public void setCelsius(float celsius) {
-        this.setKelvin(convertToKelvin(celsius));
     }
 
     public boolean equals(Object o) {

@@ -4,23 +4,12 @@ import main.w07.ex01.Person;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.*;
 
 class TemperatureTest {
     private final float KELVIN_VALUE = 273.15f;
-    Temperature temperature = Temperature.createFromCelsius(0);
-
-    @Test
-    void testSetKelvin() {
-        temperature.setKelvin(KELVIN_VALUE + 1);
-        assertEquals(1, temperature.getCelsius());
-    }
-
-    @Test
-    void testSetCelsius() {
-        temperature.setCelsius(4f);
-        assertEquals(4f, temperature.getCelsius());
-    }
+    private final Temperature temperature = Temperature.createFromCelsius(0);
 
     @Test
     void testGetKelvin() {
@@ -33,9 +22,36 @@ class TemperatureTest {
     }
 
     @Test
-    void testKelvinConstructor() {
+    void testCreateFromCelsius() {
+        Temperature otherTemperature = Temperature.createFromCelsius(0);
+        assertEquals(temperature, otherTemperature);
+    }
+
+    @Test
+    void testCreateFromKelvin() {
         Temperature otherTemperature = Temperature.createFromKelvin(273.15f);
         assertEquals(temperature, otherTemperature);
+    }
+
+    @Test
+    void testIllegalCelsiusException() {
+        assertThatThrownBy(() -> Temperature.createFromCelsius(-273.16f))
+            .isInstanceOf(IllegalArgumentException.class)
+            .hasMessage("Celsiuswert darf nicht unter -273.15 sein!");
+    }
+
+    @Test
+    void testIllegalKelvinException() {
+        assertThatThrownBy(() -> Temperature.createFromKelvin(-1))
+            .isInstanceOf(IllegalArgumentException.class)
+            .hasMessage("Kelvinwert darf nicht unter 0 sein!");
+    }
+
+    @Test
+    void testIllegalScaleException() {
+        assertThatThrownBy(Temperature::createFromFahrenheit)
+            .isInstanceOf(NotImplementedException.class)
+            .hasMessage("Not implemented yet!");
     }
 
     @Test
