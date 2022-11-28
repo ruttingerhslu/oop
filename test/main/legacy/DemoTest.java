@@ -1,7 +1,7 @@
-package test.main.legacy;
+package main.legacy;
 
 import org.junit.jupiter.api.Test;
-import src.main.legacy.Demo;
+import main.legacy.Demo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

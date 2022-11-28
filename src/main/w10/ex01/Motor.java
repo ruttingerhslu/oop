@@ -1,4 +1,4 @@
-package main.w04.ex02;
+package main.w10.ex01;
 
 public class Motor implements Switchable {
     private boolean status;
@@ -22,11 +22,11 @@ public class Motor implements Switchable {
     
     public void setRotationalSpeed(int rpm) {
         rotationalSpeed = rpm;
+        if (rpm == 0) switchOff();
+        else switchOn();
     }
 
     public int getRotationalSpeed() {
         return rotationalSpeed;
     }
-
-
 }

@@ -1,8 +1,8 @@
-package main.w04.ex02;
+package main.w10.ex01;
 
 public class Vehicle {
-    private Switchable motor = new Motor();
-    private Switchable radio = new Radio();
+    private final Switchable motor = new Motor();
+    private final Switchable radio = new Radio();
 
     public Vehicle() {
         motor.switchOn();

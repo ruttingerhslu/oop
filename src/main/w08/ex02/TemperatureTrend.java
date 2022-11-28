@@ -1,17 +1,13 @@
 package main.w08.ex02;
 
-import main.w08.ex01.Temperature;
+import main.w09.ex02.Temperature;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Objects;
 
 public final class TemperatureTrend {
-    private final ArrayList<Temperature> temperatures;
-
-    public TemperatureTrend(ArrayList<Temperature> temperatures) {
-        this.temperatures = temperatures;
-    }
+    private final ArrayList<Temperature> temperatures = new ArrayList<>();
 
     public ArrayList<Temperature> getTemperatures() {
         return temperatures;

@@ -4,16 +4,16 @@ import main.w07.ex01.Person;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.jupiter.api.Test;
 
+import static main.w09.ex02.Temperature.KELVIN_OFFSET;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.*;
 
 class TemperatureTest {
-    private final float KELVIN_VALUE = 273.15f;
     private final Temperature temperature = Temperature.createFromCelsius(0);
 
     @Test
     void testGetKelvin() {
-        assertEquals(273.15f, temperature.getKelvin());
+        assertEquals(KELVIN_OFFSET, temperature.getKelvin());
     }
 
     @Test
@@ -31,27 +31,6 @@ class TemperatureTest {
     void testCreateFromKelvin() {
         Temperature otherTemperature = Temperature.createFromKelvin(273.15f);
         assertEquals(temperature, otherTemperature);
-    }
-
-    @Test
-    void testIllegalCelsiusException() {
-        assertThatThrownBy(() -> Temperature.createFromCelsius(-273.16f))
-            .isInstanceOf(IllegalArgumentException.class)
-            .hasMessage("Celsiuswert darf nicht unter -273.15 sein!");
-    }
-
-    @Test
-    void testIllegalKelvinException() {
-        assertThatThrownBy(() -> Temperature.createFromKelvin(-1))
-            .isInstanceOf(IllegalArgumentException.class)
-            .hasMessage("Kelvinwert darf nicht unter 0 sein!");
-    }
-
-    @Test
-    void testIllegalScaleException() {
-        assertThatThrownBy(Temperature::createFromFahrenheit)
-            .isInstanceOf(NotImplementedException.class)
-            .hasMessage("Not implemented yet!");
     }
 
     @Test
@@ -80,11 +59,25 @@ class TemperatureTest {
 
     @Test
     void testConvertToKelvin() {
-        assertEquals(KELVIN_VALUE, temperature.convertToKelvin(0));
+        assertEquals(KELVIN_OFFSET, Temperature.convertToKelvin(0));
     }
 
     @Test
     void testConvertToCelsius() {
-        assertEquals(0f, temperature.convertToCelsius(KELVIN_VALUE));
+        assertEquals(0f, Temperature.convertToCelsius(KELVIN_OFFSET));
+    }
+
+    @Test
+    void testCheckCelsius() {
+        assertThatThrownBy(() -> Temperature.checkCelsius(-273.16f))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("Celsius value can't be under -273.15!");
+    }
+
+    @Test
+    void testCheckKelvin() {
+        assertThatThrownBy(() -> Temperature.checkKelvin(-1))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("Kelvin value can't be under 0!");
     }
 }

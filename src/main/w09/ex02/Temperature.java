@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public final class Temperature implements Comparable<Temperature> {
     private final float kelvin;
-    private final float KELVIN_OFFSET = 273.15f;
+    static final float KELVIN_OFFSET = 273.15f;
 
     private Temperature(float temperature, TemperatureScale scale) {
         switch (scale) {
@@ -15,17 +15,13 @@ public final class Temperature implements Comparable<Temperature> {
     }
 
     public static Temperature createFromCelsius(final float celsius) {
-        if (celsius < -273.15) throw new IllegalArgumentException("Celsiuswert darf nicht unter -273.15 sein!");
+        checkCelsius(celsius);
         return new Temperature(celsius, TemperatureScale.CELSIUS);
     }
 
     public static Temperature createFromKelvin(final float kelvin) {
-        if (kelvin < 0) throw new IllegalArgumentException("Kelvinwert darf nicht unter 0 sein!");
+        checkKelvin(kelvin);
         return new Temperature(kelvin, TemperatureScale.KELVIN);
-    }
-
-    public static Temperature createFromFahrenheit() throws NotImplementedException {
-        throw new NotImplementedException("Not implemented yet!");
     }
 
     public float getKelvin() {
@@ -33,7 +29,7 @@ public final class Temperature implements Comparable<Temperature> {
     }
 
     public float getCelsius() {
-        return this.convertToCelsius(getKelvin());
+        return convertToCelsius(getKelvin());
     }
 
     public boolean equals(Object o) {
@@ -55,11 +51,21 @@ public final class Temperature implements Comparable<Temperature> {
         return Float.compare(getKelvin(), other.getKelvin());
     }
 
-    public float convertToKelvin(float celsius) {
-        return celsius + this.KELVIN_OFFSET;
+    public static float convertToKelvin(float celsius) {
+        checkCelsius(celsius);
+        return celsius + KELVIN_OFFSET;
     }
 
-    public float convertToCelsius(float kelvin) {
-        return kelvin - this.KELVIN_OFFSET;
+    public static float convertToCelsius(float kelvin) {
+        checkKelvin(kelvin);
+        return kelvin - KELVIN_OFFSET;
+    }
+
+    public static void checkKelvin(float kelvin) {
+        if (kelvin < 0) throw new IllegalArgumentException("Kelvin value can't be under 0!");
+    }
+
+    public static void checkCelsius(float celsius) {
+        if (celsius < -KELVIN_OFFSET) throw new IllegalArgumentException("Celsius value can't be under -273.15!");
     }
 }

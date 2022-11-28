@@ -1,4 +1,4 @@
-package main.w04.ex02;
+package main.w10.ex01;
 /**
  * 
  * Interface class representing a switchable thing.

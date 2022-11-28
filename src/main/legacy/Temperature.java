@@ -1,4 +1,4 @@
-package src.main.legacy;
+package main.legacy;
 public class Temperature {
     private double celsius;
 
