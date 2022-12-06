@@ -40,7 +40,7 @@ class PersonTest {
     public void testEqualsTypo() {
         Person typoPerson = new Person(1, "Paul", "Toss");
 
-        assertTrue(person.equals(typoPerson));
+        assertFalse(person.equals(typoPerson));
     }
 
     @Test

@@ -1,4 +1,4 @@
-package w10;
+package w10.ex01;
 /**
  * 
  * Interface class representing a switchable thing.

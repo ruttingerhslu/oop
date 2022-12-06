@@ -1,4 +1,4 @@
-package w10;
+package w10.ex01;
 
 public class Radio implements Switchable {
     private boolean status;

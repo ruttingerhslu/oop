@@ -1,4 +1,6 @@
-package w09.ex02;
+package w10.ex02;
+
+import w10.ex02.TemperatureScale;
 
 import java.util.Objects;
 
